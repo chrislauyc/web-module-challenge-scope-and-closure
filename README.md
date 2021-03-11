@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+When accessing a variable in code, sometimes the variable is not present in the local scope. Thus, the compiler will look for the variable in the parent scope until it reaches the root scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+It is used when using the variable "name". "name" belongs to the "personalDice" function scope. Since "name" is not declared in the return function, the return function reaches out to access the variable "name"
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+"name" would be the same for both function calls. However, since Math.random() returns a random number, "newRoll" would be different.
+
 c. What is the lexical scope of `newRoll`? 
+
+The scope is the return function within the function "personalDice".
 
 
 ### Task 3 - Stretch Goals
@@ -80,6 +91,14 @@ See if you can complete one or more of the following challenges:
 var addSix = createBase(6);
 addSix(10); // returns 16
 addSix(21); // returns 27
+```
+
+```js
+function createBase(num){
+  return function(num2){
+    return num+num2;
+  };
+}
 ```
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
